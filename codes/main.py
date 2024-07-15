@@ -23,3 +23,13 @@ def extract_features(request: UserRequest):
     except Exception as e:
         # You can customize the status code and the detail message
         raise HTTPException(status_code=500, detail=str(e))
+    
+
+# Will return true if online
+@app.get("/health-check")
+def health_check(request: UserRequest):
+    try:
+        return True
+    except Exception as e:
+
+        raise HTTPException(status_code=500, detail=str(e))
